@@ -1,0 +1,106 @@
+.elements {
+  max-width: 882px;
+  margin: 0 auto;
+  padding: 50px 0 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+}
+
+.elements__content {
+  padding: 0;
+  margin: 0;
+}
+
+.elements__card {
+  max-width: 282px;
+  height: 361px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.elements__image {
+  max-width: 282px;
+  max-height: 282px;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
+
+.elements__image-trash {
+  background: none;
+  border: none;
+  padding: 0;
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  
+}
+
+.elements__image-trash:hover {
+  opacity: 60%;
+}
+
+.elements__text {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #ffffff;
+  max-height: 79px;
+  padding: 0 21px;
+}
+
+.elements__title {
+  font-size: 24px;
+  line-height: 29.05px;
+  font-weight: 900;
+  background-color: #ffffff;
+  height: 79px;
+  margin: 0;
+  align-content: center;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.elements__image-like {
+  cursor: pointer;
+  align-self: center;
+}
+
+.elements__image-like:hover {
+  opacity: 50%;
+}
+
+.elements__image-like_active {
+  background-image: url(/images/Union.png);
+}
+
+@media screen and (max-width: 900px) {
+  .elements {
+    margin: 0 15px;
+  }
+}
+
+@media screen and (max-width: 780px) {
+  .elements {
+    grid-template-columns: repeat(2, 282px);
+    justify-content: center;
+  }
+}
+
+@media screen and (max-width: 590px) {
+  .elements {
+    display: grid;
+    grid-template-columns: auto;
+    justify-content: center;
+  }
+}

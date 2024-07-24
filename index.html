@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="fotos" />
+    <meta name="author" content="Luiz Antonio" />
+    <meta name="keywords" content="redesocial, fotos, viagens, natureza," />
+    <title>Around The U.S.</title>
+    <link rel="stylesheet" href="pages/index.css" />
+  </head>
+  <body>
+    <div class="page">
+      <header class="header">
+        <img src="images/headerlogo.svg" alt="Logo" class="header__logo" />
+      </header>
+      <main class="content">
+        <section class="profile">
+          <img
+            src="images/avatarprofile.jpg"
+            alt="Jacques Cousteau"
+            class="profile__image"
+          />
+          <div class="profile__info">
+            <div class="profile__name">
+              <p class="profile__text">Jacques Cousteau</p>
+              <img
+                src="images/editbuttonprofile.svg"
+                alt="Button Edit"
+                class="profile__edit-button"
+              />
+            </div>
+            <p class="profile__profession">Explorador</p>
+          </div>
+          <img
+            src="images/addbuttonprofile.png"
+            alt="Button Add"
+            class="profile__add-button"
+          />
+        </section>
+        <section class="elements"></section>
+
+        <template class="template-card">
+          <article class="elements__card">
+            <img src="." alt="" class="elements__image" />
+            <img
+              src="/images/trashcap.svg"
+              alt="Lixeira"
+              class="elements__image-trash"
+            />
+            <div class="elements__text">
+              <h1 class="elements__title"></h1>
+              <img
+                src="/images/corazon.svg"
+                alt="Like"
+                class="elements__image-like"
+              />
+            </div>
+          </article>
+        </template>
+
+        <div class="popup">
+          <div class="popup__overlay"></div>
+          <form class="popup__form">
+            <img
+              src="images/CloseIcon.png"
+              alt="Fechar"
+              class="popup__button-closed"
+            />
+            <h3 class="popup__header">Editar Perfil</h3>
+            <input
+              type="text"
+              id="input-name"
+              class="popup__name popup__input"
+              minlength="2"
+              maxlength="40"
+              placeholder="Jacques Cousteau"
+              required
+            />
+            <span class="popup__error-visible input-name-error"></span>
+
+            <input
+              type="text"
+              id="input-description"
+              class="popup__description popup__input"
+              minlength="2"
+              maxlength="200"
+              placeholder="Explorador"
+              required
+            />
+            <span class="popup__error-visible input-description-error"></span>
+
+            <button type="submit" class="popup__button-create popup__button">
+              Guardar
+            </button>
+          </form>
+        </div>
+
+        <div class="popup" id="popup-card">
+          <div class="popup__overlay"></div>
+          <form class="popup__card-form popup__form">
+            <img
+              src="images/CloseIcon.png"
+              alt="Fechar"
+              class="popup__card-button-closed"
+            />
+            <h3 class="popup__card-header">Novo Lugar</h3>
+            <input
+              type="text"
+              id="input-title"
+              class="popup__card-title popup__input"
+              value=""
+              minlength="2"
+              maxlength="40"
+              placeholder="Titulo"
+              required
+            />
+            <span class="popup__error-visible input-title-error"></span>
+
+            <input
+              type="url"
+              id="input-url"
+              class="popup__card-url popup__input"
+              value=""
+              minlength="2"
+              placeholder="Link da imagem"
+              required
+            />
+            <span class="popup__error-visible input-url-error"></span>
+
+            <button
+              type="submit"
+              class="popup__card-button-create popup__button"
+            >
+              Criar
+            </button>
+          </form>
+        </div>
+
+        <div class="popup" id="popup-image">
+          <div class="popup__overlay"></div>
+          <div class="popup__image-content">
+            <img
+              src="images/CloseIcon.png"
+              alt="Fechar"
+              class="popup__image-button-closed"
+            />
+            <img src="." alt="" class="popup__image-photo" />
+            <p class="popup__image-name"></p>
+          </div>
+        </div>
+      </main>
+      <footer class="footer">
+        <p class="footer__copyright">&amp; 2024 Luiz Antonio</p>
+      </footer>
+    </div>
+    <script src="script.js"></script>
+    <script src="validate.js"></script>
+  </body>
+</html>
