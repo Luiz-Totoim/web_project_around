@@ -1,0 +1,178 @@
+.profile {
+  max-width: 880px;
+  display: flex;
+  margin: 44.96px auto;
+}
+
+.profile__avatar-and-edit-pen-container {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-right: 30px;
+}
+
+.profile__avatar {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  margin-right: 29.92px;
+}
+
+.profile__edit-button-avatar {
+  width: 120px;
+  height: 120px;
+  position: absolute;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  top: 0;
+  background-color: transparent;
+}
+
+.profile__edit-button-avatar:hover {
+  background-image: url(../images/Profile_Avatar.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.profile__info {
+  position: relative;
+  margin: 25.76px auto 24.8px 3.68px;
+  width: 415px;
+  height: 77px;
+  display: flex;
+  color: white;
+}
+
+.profile__name {
+  max-width: 373px;
+  color: #fff;
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-family: Inter;
+  font-size: 42px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 48px;
+  margin: 0 0 16px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.profile__edit-button {
+  width: 24px;
+  height: 24px;
+  position: absolute;
+  right: 0;
+  top: 15.04px;
+  border: none;
+  background-image: url(../images/Edit-Button.png);
+  cursor: pointer;
+  border: 1px solid #FFFFFF;
+  color: white;
+  background-color: black;
+}
+
+.profile__edit-button:hover {
+  opacity: 0.6;
+}
+
+.profile__about {
+  max-width: 373px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  margin: 0;
+  color: #fff;
+  font-family: Inter;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.profile__add-button {
+  width: 150px;
+  height: 50px;
+  align-self: center;
+  border: none;
+  background-color: #000;
+  background-image: url(../images/add-button-mobile.png);
+  cursor: pointer;
+  border: 2px solid #FFFFFF;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.profile__add-button:hover {
+  opacity: 0.6;
+}
+
+@media screen and (min-width: 320px) and (max-width: 970px) {
+  .profile {
+    max-width: 282px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 42.08px auto;
+  }
+
+  .profile__avatar {
+    flex-shrink: 0;
+    margin: auto;
+  }
+
+  .profile__info {
+    width: 282px;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .profile__title-and-button {
+    display: flex;
+  }
+
+  .profile__name {
+    max-width: 196px;
+    position: unset;
+    margin: 0;
+    text-align: center;
+    font-family: Inter;
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+  }
+
+  .profile__edit-button {
+    margin-left: 24px;
+    position: unset;
+    border: none;
+    background-image: url(../images/Edit-Button.png);
+  }
+
+  .profile__about {
+    max-width: 373px;
+    position: unset;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .profile__add-button {
+    margin-top: 36px;
+    width: 282px;
+    height: 50px;
+    background-image: url(../images/add-button-mobile.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    border: solid 2px #fff;
+  }
+}

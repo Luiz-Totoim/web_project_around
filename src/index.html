@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Rede social" />
+    <meta name="keywords" content=" rede social" />
+    <title>Around the U.S</title>
+    <meta name="author" content="Luiz Antonio">
+  </head>
+  <body>
+    <div class="page">
+      <header class="header">
+        <img class="logo" src="<%=require('./images/logo.png')%>" alt="logo around the U.S" />
+        <hr class="header__line" />
+      </header>
+      <main class="main">
+        <section class="profile">
+          <div class="profile__avatar-and-edit-pen-container">
+            <img
+              class="profile__avatar"
+              src="<%=require('./images/profile-img.png')%>"
+              alt="foto do perfil"
+            />
+            <button type="button" class="profile__edit-button-avatar"></button>
+          </div>
+          <div class="profile__info">
+            <div class="profile__title-and-button">
+              <h1 class="profile__name">Jacques Cousteau</h1>
+              <button type="button" class="profile__edit-button"></button>
+            </div>
+            <h3 class="profile__about">Explorador</h3>
+          </div>
+          <button class="profile__add-button"></button>
+        </section>
+        <section class="elements">
+          <template id="template">
+            <div class="elements__card">
+                <img src="<%=require('./images/Trash.png')%>" alt="icone de lixeira" class="elements__delete-icon">
+              <img src="" alt="" class="elements__card-image">
+              <div class="elements__container-text-and-like-button">
+                <p class="elements__card-name"></p>
+                <div class="elements__like-container">
+                  <button class="elements__like-icon"></button>
+                  <span class="elements__like-count">0</span> 
+                </div>
+              </div>
+            </div>
+          </template>
+        </section>
+
+        <!--Edicao do Avatar -->
+        <section class="popup popup-edit-avatar">
+          <div class="popup__container popup__container_avatar">
+            <button class="popup__close-button popup-edit-avatar__close-button"></button>
+            <h2 class="popup__title">Alterar a foto do perfil</h2>
+            <form class="popup__form popup-edit-avatar__form">
+              <div>
+                <input
+                  id="avatar-link"
+                  class="popup__input popup-edit-avatar__input"
+                  placeholder="Link da imagem do avatar"
+                  type="url"
+                  name="avatar"
+                  required
+                />
+                <span class="error-message" id="avatar-link-error"></span>
+              </div>
+              <button type="submit" class="popup__save-button popup-edit-avatar__save-button">Salvar</button>
+            </form>
+          </div>
+        </section>        
+        
+        <!-- Seção do Formulário "Editar perfil" -->
+        <section class="popup popup-edit">
+          <div class="popup__container">
+            <button class="popup__close-button popup-edit__close-button"></button>
+            <h2 class="popup__title">Editar perfil</h2>
+            <form id="popup__form edit-profile-form" class="popup__form popup-edit__form">
+              
+              <!-- Box Nome -->
+              <div>
+              <input
+                  class="popup__input popup-edit__input"
+                  placeholder="Nome"
+                  type="text"
+                  id="name"
+                  name="name"
+                  required
+                  minlength="2"
+                  maxlength="40"
+                />
+                <span class="error-message" id="name-error"></span>
+
+              
+              <!-- Box Sobre -->
+                <input
+                  class="popup__input popup__input-space"
+                  placeholder="Sobre mim"
+                  type="text"
+                  id="about"
+                  name="about"
+                  required
+                  minlength="2"
+                  maxlength="200"
+                />
+                <span class="error-message" id="about-error"></span>
+              </div>
+              
+              <button type="submit" id="save-button" class="popup__save-button">
+                Salvar
+              </button>
+            </form>
+          </div>
+        </section>
+        <section class="popup popup-addCard">
+          <div class="popup__container">
+            <button class="popup__close-button popup-addCard__close-button"></button>
+            <h2 class="popup__title">Novo local</h2>
+            <form class="popup__form popup-addCard__form">
+              <div>
+              <input
+                id="title"
+                class="popup__input popup-addCard__input-title"
+                placeholder="Título"
+                type="text"
+                name="name"
+                required
+                minlength="2"
+                maxlength="30"
+              />
+              <span class="error-message" id="title-error"></span>
+              <input
+                id="link"
+                class="popup__input popup__input-space popup-addCard__input-image"
+                placeholder="Link de imagem"
+                type="url"
+                name="image"
+                required
+              />
+              <span class="error-message" id="link-error"></span>
+            </div>
+
+              <button type="submit" class="popup__save-button popup-addCard__save-button">
+                Salvar
+              </button>
+            </form>
+          </div>
+        </section>
+
+        <div class="popup popup-view-image">
+          <div class="popup__container popup__container-view-image">
+            <div class="popup-view-image__image-container">
+              <img
+                class="popup__close-button popup-view-image__close-button"
+                src="<%=require('./images/Close-icon.png')%>"
+                alt="Botão de fechar o popup"
+              />
+              <img class="popup-view-image__render-image" src="" alt="#" />
+              <span class="popup-view-image__image-title"></span>
+            </div>
+          </div>
+        </div>
+        <div class="popup popup-confirm-delete">
+          <div class="popup__container popup__container-confirm">
+            <button class="popup__close-button popup-confirm-delete__close-button"></button>
+            <h2 class="popup__title">Tem certeza?</h2>
+            <button type="button" class="popup__save-button popup-confirm-delete__save-button">Sim</button>
+          </div>
+        </div>
+      </main>
+      <footer class="footer">
+        <p class="footer__signature">© 2024 Luiz Antonio</p>
+      </footer>
+    </div>
+  </body>
+</html>
