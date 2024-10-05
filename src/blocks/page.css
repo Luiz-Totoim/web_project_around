@@ -1,18 +1,9 @@
 .page {
-  padding: 45px 0 60px;
-  font-family: "Inter", Arial, sans-serif;
   background-color: #000000;
-  position: relative;
+  color: #fff;
+  margin: 0 auto;
+  width: 100%;
 }
-
-@media screen and (max-width: 1120px) {
-  .page {
-    padding: 45px 80px 60px;
-  }
-}
-
-@media screen and (max-width: 720px) {
-  .page {
-    padding: unset;
-  }
+* {
+  box-sizing: border-box;
 }
