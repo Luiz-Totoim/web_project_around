@@ -1,6 +1,3 @@
-// postcss.config.js
-
-// conecte os plugins ao arquivo
 const autoprefixer = require("autoprefixer");
 const cssnano = require("cssnano");
 
@@ -12,4 +9,4 @@ module.exports = {
         // aprove um objeto com opções ao conectar cssnano:
         cssnano({ preset: "default" }) // defina as configurações de minificação padrão
     ]
-}; 
+};
