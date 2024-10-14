@@ -85,7 +85,7 @@ document
     popupEditProfile.open();
   });
 
-// alterei- garantir que retornem uma Promise
+// Função de validação dos inputs do perfil
 function handleProfileFormSubmit({ name, about }) {
   return api.editUserInfo({ name, about }).then(() => {
     userInfo.setUserInfo({ name, about });
@@ -99,7 +99,7 @@ function handleCardDelete(cardId) {
   });
 }
 
-// Função de validação dos inputs do perfil
+// Configuração do formulário
 const config = {
   formSelector: ".popup__form",
   inputSelector: ".popup__input",
@@ -109,7 +109,7 @@ const config = {
   errorClass: "error-message",
 };
 
-//edit profile
+//Perfil
 const editButton = document.querySelector(".profile__edit-button");
 const editForm = document.querySelector(".popup-edit__form");
 const profileName = document.querySelector(".profile__name");
@@ -120,7 +120,7 @@ const popupEditcloseButton = document.querySelector(
   ".popup-edit__close-button"
 );
 
-//add card
+//Card
 const cards = document.querySelector(".elements");
 const addForm = document.querySelector(".popup-addCard__form");
 const addCardButton = document.querySelector(".profile__add-button");
