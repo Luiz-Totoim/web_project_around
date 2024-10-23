@@ -1,35 +1,37 @@
 import "./index.css";
 import Card from "../components/Сard.js";
 import FormValidation from "../components/FormValidator.js";
-import PopupWithForm from "../components/PopupWithForm.js";
-import PopupWithImage from "../components/PopupWithImage.js";
+import ModalWithForm from "../components/ModalWithForm.js";
+import ModalWithImage from "../components/ModalWithImage.js";
 import Section from "../components/Section.js";
-import UserInfo from "../components/UserInfo.js";
-import Api from "../components/Api.js";
-const api = new Api({
+import User from "../components/User.js";
+import ApiService from "../components/Api.js";
+
+const api = new ApiService({
   baseURL: "https://around.nomoreparties.co/v1/web-ptbr-cohort-11",
   headers: {
     authorization: "e1bf077e-1f40-49ae-b399-5969495a1c96",
     "Content-Type": "application/json",
   },
 });
-import PopupWithConfirmation from "../components/PopupWithConfirmation.js";
 
-const popupWithConfirmation = new PopupWithConfirmation(
-  ".popup-confirm-delete",
+import ModalWithConfirmation from "../components/ModalWithConfirmation.js";
+
+const modalWithConfirmation = new ModalWithConfirmation(
+  ".modal-confirm-delete",
   (cardId) => handleCardDelete(cardId)
 );
-popupWithConfirmation.setEventListeners();
-const popupWithConfirmationCloseButton = document.querySelector(
-  ".popup-confirm-delete__close-button"
+modalWithConfirmation.setEventListeners();
+const modalWithConfirmationCloseButton = document.querySelector(
+  ".modal-confirm-delete__close-button"
 );
-popupWithConfirmationCloseButton.addEventListener("click", () =>
-  popupWithConfirmation.close()
+modalWithConfirmationCloseButton.addEventListener("click", () =>
+  modalWithConfirmation.close()
 );
 
-const popupImage = new PopupWithImage(".popup-view-image");
+const modalImage = new ModalWithImage(".modal-view-image");
 
-const userInfo = new UserInfo({
+const userInfo = new User({
   nameSelector: ".profile__name",
   aboutSelector: ".profile__about",
   avatarSelector: ".profile__avatar",
@@ -44,7 +46,7 @@ api.getUserInfo().then((user) => {
 });
 
 function handleCardClick(name, link) {
-  popupImage.open({ name, link });
+  modalImage.open({ name, link });
 }
 
 api.getCards().then((cards) => {
@@ -65,7 +67,7 @@ api.getCards().then((cards) => {
           handleCardClick,
           api.addLike.bind(api),
           api.removeLike.bind(api),
-          (cardId, card) => popupWithConfirmation.open(cardId, card)
+          (cardId, card) => modalWithConfirmation.open(cardId, card)
         ).generateCard();
         section.addItem(cardElement);
       },
@@ -82,14 +84,14 @@ document
     const user = userInfo.getUserInfo();
     inputName.value = user.name;
     inputAbout.value = user.about;
-    popupEditProfile.open();
+    modalEditProfile.open();
   });
 
 // Função de validação dos inputs do perfil
 function handleProfileFormSubmit({ name, about }) {
   return api.editUserInfo({ name, about }).then(() => {
     userInfo.setUserInfo({ name, about });
-    popupEditProfile.close();
+    modalEditProfile.close();
   });
 }
 
@@ -101,39 +103,39 @@ function handleCardDelete(cardId) {
 
 // Configuração do formulário
 const config = {
-  formSelector: ".popup__form",
-  inputSelector: ".popup__input",
-  submitButtonSelector: ".popup__save-button",
-  inactiveButtonClass: ".popup__save-button",
+  formSelector: ".modal__form",
+  inputSelector: ".modal__input",
+  submitButtonSelector: ".modal__save-button",
+  inactiveButtonClass: ".modal__save-button",
   inputErrorClass: ".about-error",
   errorClass: "error-message",
 };
 
 //Perfil
 const editButton = document.querySelector(".profile__edit-button");
-const editForm = document.querySelector(".popup-edit__form");
+const editForm = document.querySelector(".modal-edit__form");
 const profileName = document.querySelector(".profile__name");
 const profileAbout = document.querySelector(".profile__about");
-const inputName = document.querySelector(".popup-edit__input");
-const inputAbout = document.querySelector(".popup__input-space");
+const inputName = document.querySelector(".modal-edit__input");
+const inputAbout = document.querySelector(".modal__input-space");
 const popupEditcloseButton = document.querySelector(
-  ".popup-edit__close-button"
+  ".modal-edit__close-button"
 );
 
 //Card
 const cards = document.querySelector(".elements");
-const addForm = document.querySelector(".popup-addCard__form");
+const addForm = document.querySelector(".modal-addCard__form");
 const addCardButton = document.querySelector(".profile__add-button");
 const popupAddCardCloseButton = document.querySelector(
-  ".popup-addCard__close-button"
+  ".modal-addCard__close-button"
 );
 
 //Avatar
 const openPopupAvatar = document.querySelector(".profile__edit-button-avatar");
-const closePopupAvatar = document.querySelector(
-  ".popup-edit-avatar__close-button"
+const closeModalAvatar = document.querySelector(
+  ".modal-edit-avatar__close-button"
 );
-const avatarForm = document.querySelector(".popup-edit-avatar__form");
+const avatarForm = document.querySelector(".modal-edit-avatar__form");
 
 const editFormValidation = new FormValidation(config, editForm);
 
@@ -141,34 +143,34 @@ const editCard = new FormValidation(config, addForm);
 
 const editAvatarFormValidation = new FormValidation(config, avatarForm);
 
-const popupEditProfile = new PopupWithForm(
-  ".popup-edit",
+const modalEditProfile = new ModalWithForm(
+  ".modal-edit",
   handleProfileFormSubmit
 );
-popupEditProfile.setEventListeners();
+modalEditProfile.setEventListeners();
 
 function handleProfileAvatarFormSubmit({ avatar }) {
   userInfo.setAvatar({ avatar });
   return api.editAvatar({ avatar });
 }
 
-const popupEditAvatar = new PopupWithForm(
-  ".popup-edit-avatar",
+const modalEditAvatar = new ModalWithForm(
+  ".modal-edit-avatar",
   handleProfileAvatarFormSubmit
 );
-popupEditAvatar.setEventListeners();
+modalEditAvatar.setEventListeners();
 
-closePopupAvatar.addEventListener("click", function () {
-  popupEditAvatar.close();
+closeModalAvatar.addEventListener("click", function () {
+  modalEditAvatar.close();
 });
 
 openPopupAvatar.addEventListener("click", function () {
-  popupEditAvatar.open();
+  modalEditAvatar.open();
   editAvatarFormValidation.enableValidation();
 });
 
 editButton.addEventListener("click", function () {
-  popupEditProfile.open();
+  modalEditProfile.open();
   inputName.value = profileName.textContent;
   inputAbout.value = profileAbout.textContent;
   editFormValidation.enableValidation();
@@ -202,7 +204,7 @@ function submitFormCard(inputs) {
               handleCardClick,
               api.addLike.bind(api),
               api.removeLike.bind(api),
-              (cardId, card) => popupWithConfirmation.open(cardId, card)
+              (cardId, card) => modalWithConfirmation.open(cardId, card)
             ).generateCard();
             section.addItem(cardElement);
           },
@@ -216,39 +218,39 @@ function submitFormCard(inputs) {
   }
 }
 
-const popupAddCard = new PopupWithForm(".popup-addCard", submitFormCard);
-popupAddCard.setEventListeners();
+const modalAddCard = new ModalWithForm(".modal-addCard", submitFormCard);
+modalAddCard.setEventListeners();
 
 addCardButton.addEventListener("click", function () {
-  popupAddCard.open();
+  modalAddCard.open();
   editCard.enableValidation();
   addForm.reset();
 });
 
-// Fechar o popup "Novo Local"
+// Fechar o modal "Novo Local"
 popupAddCardCloseButton.addEventListener("click", function (evt) {
-  popupAddCard.close();
+  modalAddCard.close();
 });
 
 popupEditcloseButton.addEventListener("click", function () {
-  popupEditProfile.close();
+  modalEditProfile.close();
 });
 
-const popupImageClose = document.querySelector(
-  ".popup-view-image__close-button"
+const modalImageClose = document.querySelector(
+  ".modal-view-image__close-button"
 );
 
-popupImageClose.addEventListener("click", function (evt) {
-  popupImage.close();
+modalImageClose.addEventListener("click", function (evt) {
+  modalImage.close();
 });
 
-function closePopupOnEscKey(evt) {
+function closeModalOnEscKey(evt) {
   if (evt.key === "Escape") {
-    const openedPopup = document.querySelector(".popup_opened");
-    if (openedPopup) {
-      openedPopup.classList.remove("popup_opened");
+    const openedModal = document.querySelector(".popup_opened");
+    if (openedModal) {
+      openedModal.classList.remove("popup_opened");
     }
   }
 }
 
-document.addEventListener("keydown", closePopupOnEscKey);
+document.addEventListener("keydown", closeModalOnEscKey);

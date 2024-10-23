@@ -49,16 +49,16 @@
           </template>
         </section>
 
-        <!--Popup de adicao de imagem -->
-        <section class="popup popup-edit-avatar">
-          <div class="popup__container popup__container_avatar">
-            <button class="popup__close-button popup-edit-avatar__close-button"></button>
-            <h2 class="popup__title">Alterar a foto do perfil</h2>
-            <form class="popup__form popup-edit-avatar__form">
+        <!--Modal de adicao de imagem -->
+        <section class="modal modal-edit-avatar">
+          <div class="modal__container modal__container_avatar">
+            <button class="modal__close-button modal-edit-avatar__close-button"></button>
+            <h2 class="modal__title">Alterar a foto do perfil</h2>
+            <form class="modal__form modal-edit-avatar__form">
               <div>
                 <input
                   id="avatar-link"
-                  class="popup__input popup-edit-avatar__input"
+                  class="modal__input modal-edit-avatar__input"
                   placeholder="Link da imagem do avatar"
                   type="url"
                   name="avatar"
@@ -66,22 +66,22 @@
                 />
                 <span class="error-message" id="avatar-link-error"></span>
               </div>
-              <button type="submit" class="popup__save-button popup-edit-avatar__save-button">Salvar</button>
+              <button type="submit" class="modal__save-button modal-edit-avatar__save-button">Salvar</button>
             </form>
           </div>
         </section>        
         
         <!--Edicao do Perfil -->
-        <section class="popup popup-edit">
-          <div class="popup__container">
-            <button class="popup__close-button popup-edit__close-button"></button>
-            <h2 class="popup__title">Editar perfil</h2>
-            <form id="popup__form edit-profile-form" class="popup__form popup-edit__form">
+        <section class="modal modal-edit">
+          <div class="modal__container">
+            <button class="modal__close-button modal-edit__close-button"></button>
+            <h2 class="modal__title">Editar perfil</h2>
+            <form id="modal__form edit-profile-form" class="modal__form modal-edit__form">
               
               <!-- Box Nome -->
               <div>
               <input
-                  class="popup__input popup-edit__input"
+                  class="modal__input modal-edit__input"
                   placeholder="Nome"
                   type="text"
                   id="name"
@@ -95,7 +95,7 @@
               
               <!-- Box Sobre mim -->
                 <input
-                  class="popup__input popup__input-space"
+                  class="modal__input modal__input-space"
                   placeholder="Sobre mim"
                   type="text"
                   id="about"
@@ -107,21 +107,21 @@
                 <span class="error-message" id="about-error"></span>
               </div>
               
-              <button type="submit" id="save-button" class="popup__save-button">
+              <button type="submit" id="save-button" class="modal__save-button">
                 Salvar
               </button>
             </form>
           </div>
         </section>
-        <section class="popup popup-addCard">
-          <div class="popup__container">
-            <button class="popup__close-button popup-addCard__close-button"></button>
-            <h2 class="popup__title">Novo local</h2>
-            <form class="popup__form popup-addCard__form">
+        <section class="modal modal-addCard">
+          <div class="modal__container">
+            <button class="modal__close-button modal-addCard__close-button"></button>
+            <h2 class="modal__title">Novo local</h2>
+            <form class="modal__form modal-addCard__form">
               <div>
               <input
                 id="title"
-                class="popup__input popup-addCard__input-title"
+                class="modal__input modal-addCard__input-title"
                 placeholder="Título"
                 type="text"
                 name="name"
@@ -132,7 +132,7 @@
               <span class="error-message" id="title-error"></span>
               <input
                 id="link"
-                class="popup__input popup__input-space popup-addCard__input-image"
+                class="modal__input modal__input-space modal-addCard__input-image"
                 placeholder="Link de imagem"
                 type="url"
                 name="image"
@@ -141,31 +141,31 @@
               <span class="error-message" id="link-error"></span>
             </div>
 
-              <button type="submit" class="popup__save-button popup-addCard__save-button">
+              <button type="submit" class="modal__save-button modal-addCard__save-button">
                 Salvar
               </button>
             </form>
           </div>
         </section>
 
-        <div class="popup popup-view-image">
-          <div class="popup__container popup__container-view-image">
-            <div class="popup-view-image__image-container">
+        <div class="modal modal-view-image">
+          <div class="modal__container modal__container-view-image">
+            <div class="modal-view-image__image-container">
               <img
-                class="popup__close-button popup-view-image__close-button"
+                class="modal__close-button modal-view-image__close-button"
                 src="<%=require('./images/Close-icon.png')%>"
                 alt="Botão de fechar"
               />
-              <img class="popup-view-image__render-image" src="" alt="#" />
-              <span class="popup-view-image__image-title"></span>
+              <img class="modal-view-image__render-image" src="" alt="#" />
+              <span class="modal-view-image__image-title"></span>
             </div>
           </div>
         </div>
-        <div class="popup popup-confirm-delete">
-          <div class="popup__container popup__container-confirm">
-            <button class="popup__close-button popup-confirm-delete__close-button"></button>
-            <h2 class="popup__title">Tem certeza?</h2>
-            <button type="button" class="popup__save-button popup-confirm-delete__save-button">Sim</button>
+        <div class="modal modal-confirm-delete">
+          <div class="modal__container modal__container-confirm">
+            <button class="modal__close-button modal-confirm-delete__close-button"></button>
+            <h2 class="modal__title">Tem certeza?</h2>
+            <button type="button" class="modal__save-button modal-confirm-delete__save-button">Sim</button>
           </div>
         </div>
       </main>

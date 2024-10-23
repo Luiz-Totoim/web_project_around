@@ -1,0 +1,16 @@
+.main {
+  max-width: 880px;
+  min-width: 320px;
+  width: 90vw;
+}
+@media screen and (max-width: 320px) {
+  .main {
+    max-width: 282px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .main {
+    max-width: 100%;
+  }
+}

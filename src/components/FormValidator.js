@@ -16,7 +16,7 @@ export default class FormValidation {
     );
     errorMessageElement.textContent = errormessage;
     errorMessageElement.style.display = "block";
-    inputElement.classList.add("popup-edit__input_error");
+    inputElement.classList.add("modal-edit__input_error");
   }
 
   _hideInputError(inputElement) {
@@ -25,7 +25,7 @@ export default class FormValidation {
     );
     errorMessageElement.style.display = "none";
     errorMessageElement.textContent = "";
-    inputElement.classList.remove("popup-edit__input_error");
+    inputElement.classList.remove("modal-edit__input_error");
   }
 
   _checkInputValidity(inputElement) {
@@ -43,13 +43,13 @@ export default class FormValidation {
   }
 
   _toggleButtonState() {
-      if (this._hasInvalidInput(this._inputList)) {
-        this._submitButton.classList.add("popup__save_disabled")
-        this._submitButton.setAttribute("disabled", true);
-      } else {
-        this._submitButton.classList.remove("popup__save_disabled")
-        this._submitButton.removeAttribute("disabled");
-      }
+    if (this._hasInvalidInput(this._inputList)) {
+      this._submitButton.classList.add("modal__save_disabled")
+      this._submitButton.setAttribute("disabled", true);
+    } else {
+      this._submitButton.classList.remove("modal__save_disabled")
+      this._submitButton.removeAttribute("disabled");
+    }
   }
 
   _setEventListeners() {
@@ -75,7 +75,7 @@ export default class FormValidation {
     //   inputElement.value = "";
     // });
     this._formElement.addEventListener("submit", (evt) => {
-    evt.preventDefault();
+      evt.preventDefault();
     });
   }
 }
